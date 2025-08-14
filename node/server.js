@@ -15,22 +15,42 @@
 // });
 
 
+// const express = require("express");
+// const app = express();
+
+// const PORT = 3000 ;
+
+// app.use(express.json());
+
+// app.get("/", (req, res) => {
+//     res.send("hellow this is your express server");
+// });
+
+// app.get("/hai", ( req, res ) => {
+//     res.send("hai this is your express server");
+// })
+
+
+// app.listen(PORT, () => {
+//     console.log(`server is running on http://localhost:${PORT}`);
+// });
+
+
+
 const express = require("express");
 const app = express();
 
-const PORT = 3000 ;
+const PORT = 3001;
 
-app.use(express.json());
-
-app.get("/", (req, res) => {
-    res.send("hellow this is your express server");
+app.use((req, res, next ) => {
+    console.log("thi is an example for the application level middleware!");
+    next();
 });
 
-app.get("/hai", ( req, res ) => {
-    res.send("hai this is your express server");
-})
-
+app.get("/", ( req, res ) => {
+    res.send("hai this your express server with applicaton level middleware ");
+});
 
 app.listen(PORT, () => {
-    console.log(`server is running on http://localhost:${PORT}`);
+    console.log(`server is listening on PORT : http://localhost:${PORT}`);
 });
