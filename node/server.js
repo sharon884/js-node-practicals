@@ -63,6 +63,14 @@ const PORT = 3001;
 
 app.use(express.json());
 
+
+app.use(( req, res, next ) => {
+    if ( req.method === "GET" ) {
+        return res.status(404).send("page is not avalible");
+    }
+    next();
+})
+
 app.post("/submit", ( req, res ) => {
     const{ name , email } = req.body;
     res.send("data recieved");
