@@ -100,6 +100,15 @@ app.post("/register", (req, res ) => {
 
     res.send(`User ${name} registered with email ${email}
 `)
+});
+
+
+app.get("/multiple/:num1/:num2", ( req, res ) => {
+    const num1 = req.params.num1;
+    const num2 = req.params.num2;
+    const multiple = Number(num1) * Number(num2);
+
+    res.send(`Result =${multiple}`);
 })
 
 app.listen(PORT, ()=> {
