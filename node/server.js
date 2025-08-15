@@ -88,7 +88,12 @@ app.get("/hai/:num1", ( req, res ) => {
 
     const sum = Number(num1) + Number(num2);
     res.send(`sum : ${sum}`);
-})
+});
+
+app.get("/greet/:name", ( req, res ) => {
+    const name = req.params.name;
+    res.send(`hellow ${name}`);
+});
 
 app.listen(PORT, ()=> {
     console.log(`server listening on http://localhost:${PORT}`);
