@@ -37,20 +37,43 @@
 
 
 
+// const express = require("express");
+// const app = express();
+
+// const PORT = 3001;
+
+// app.use((req, res, next ) => {
+//     console.log("thi is an example for the application level middleware!");
+//     next();
+// });
+
+// app.get("/", ( req, res ) => {
+//     res.send("hai this your express server with applicaton level middleware ");
+// });
+
+// app.listen(PORT, () => {
+//     console.log(`server is listening on PORT : http://localhost:${PORT}`);
+// });
+
+
 const express = require("express");
 const app = express();
 
 const PORT = 3001;
 
-app.use((req, res, next ) => {
-    console.log("thi is an example for the application level middleware!");
-    next();
+app.use(express.json());
+
+app.post("/submit", ( req, res ) => {
+    const{ name , email } = req.body;
+    res.send("data recieved");
 });
+
 
 app.get("/", ( req, res ) => {
-    res.send("hai this your express server with applicaton level middleware ");
+    res.send("server is working ");
 });
 
-app.listen(PORT, () => {
-    console.log(`server is listening on PORT : http://localhost:${PORT}`);
+
+app.listen(PORT, ()=> {
+    console.log(`server listening on http://localhost:${PORT}`);
 });
