@@ -64,12 +64,12 @@ const PORT = 3001;
 app.use(express.json());
 
 
-app.use(( req, res, next ) => {
-    if ( req.method === "GET" ) {
-        return res.status(404).send("page is not avalible");
-    }
-    next();
-})
+// app.use(( req, res, next ) => {
+//     if ( req.method === "GET" ) {
+//         return res.status(404).send("page is not avalible");
+//     }
+//     next();
+// })
 
 app.post("/submit", ( req, res ) => {
     const{ name , email } = req.body;
@@ -81,6 +81,14 @@ app.get("/", ( req, res ) => {
     res.send("server is working ");
 });
 
+
+app.get("/hai/:num1", ( req, res ) => {
+    const num1 = req.params.num1;
+    const num2 = req.query.num2;
+
+    const sum = Number(num1) + Number(num2);
+    res.send(`sum : ${sum}`);
+})
 
 app.listen(PORT, ()=> {
     console.log(`server listening on http://localhost:${PORT}`);
