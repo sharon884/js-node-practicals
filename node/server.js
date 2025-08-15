@@ -64,6 +64,12 @@ const PORT = 3001;
 app.use(express.json());
 
 
+app.use((req, res, next ) => {
+    console.log(req.method);
+    console.log(req.url);
+    next();
+});
+
 // app.use(( req, res, next ) => {
 //     if ( req.method === "GET" ) {
 //         return res.status(404).send("page is not avalible");
