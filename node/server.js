@@ -95,6 +95,13 @@ app.get("/greet/:name", ( req, res ) => {
     res.send(`hellow ${name}`);
 });
 
+app.post("/register", (req, res ) => {
+    const { name , email } = req.body;
+
+    res.send(`User ${name} registered with email ${email}
+`)
+})
+
 app.listen(PORT, ()=> {
     console.log(`server listening on http://localhost:${PORT}`);
 });
