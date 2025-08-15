@@ -109,7 +109,14 @@ app.get("/multiple/:num1/:num2", ( req, res ) => {
     const multiple = Number(num1) * Number(num2);
 
     res.send(`Result =${multiple}`);
-})
+});
+
+app.get("/sumof", ( req, res ) => {
+    const num1 = req.query.num1;
+    const num2 = req.query.num2;
+    const sum = Number(num1) + Number(num2);
+    res.send(`sum : ${sum}`);
+});
 
 app.listen(PORT, ()=> {
     console.log(`server listening on http://localhost:${PORT}`);
