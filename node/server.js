@@ -70,6 +70,13 @@ app.use((req, res, next ) => {
     next();
 });
 
+app.use(( req, res ) => {
+    if ( req.method === "DELETE" ) {
+        return res.status(403).send("Forbidden");
+    }
+
+    next();
+});
 // app.use(( req, res, next ) => {
 //     if ( req.method === "GET" ) {
 //         return res.status(404).send("page is not avalible");
